@@ -5,6 +5,7 @@ import express, {
   Request,
   Response,
 } from "express";
+import cors from "cors";
 import { errorHandler } from "./middlewares/error.middleware";
 import buildingRoutes from "./routes/buildingRoutes";
 
@@ -21,6 +22,7 @@ class App {
   }
 
   private initializeMiddlewares() {
+    this.app.use(cors());
     this.app.use(express.json());
   }
 

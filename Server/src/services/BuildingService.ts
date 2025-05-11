@@ -1,4 +1,3 @@
-import e from "express";
 import Building, { IBuilding, IFacade } from "../models/Building";
 import logger from "../utils/logger";
 import { getElectricityRate, getSolarRadiation } from "../utils/constants";
@@ -191,7 +190,7 @@ export class BuildingService {
     };
 
     await redisClient.set(cacheKey, JSON.stringify(res), { EX: 3600 });
-    
+
     return res;
 
   }
